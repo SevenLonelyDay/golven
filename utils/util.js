@@ -86,18 +86,14 @@ const mkDir = (path) => {
             }
         }
         if (!checkDir(`./${url}`)) fs.mkdirSync(`./${url}`);
-        console.log('创建文件夹完成' + index);
     }
     // return ''
     // 当前进程进入文件夹目录
     // process.chdir(url);
-    console.log('创建文件夹完成');
-
 }
 
 // 直接写入覆盖文件
 const mkFile = (filename, content) => {
-    console.log('写入文件开始');
     fs.writeFileSync(`${filename}`, content);
     // // 在组件创建文件夹
     // fs.mkdirSync(`./src/components/${dirname}`);
