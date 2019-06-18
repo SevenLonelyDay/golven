@@ -1,0 +1,22 @@
+{
+  "name": "golven",
+  "version": "1.0.0",
+  "description": "自动化创建模板",
+  "main": "index.js",
+  "author": "sivona",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "link": "",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "gl": "./index.js"
+  },
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "figlet": "^1.2.3",
+    "inquirer": "^6.3.1",
+    "minimist": "^1.2.0"
+  }
+}
