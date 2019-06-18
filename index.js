@@ -17,11 +17,15 @@ const {
 } = require('./utils/util');
 // 引入模板
 const {
-    componentTem
-} = require('./tem/component');
-const {
+    actionTem,
+    componentTem,
+    configTem,
+    constantTem,
+    interfaceTem,
+    pageTem,
+    reducerTem,
     scssTem
-} = require('./tem/scss')
+} = require('./tem/taro');
 
 // 命令窗口打印GOLVEN
 log.logo();
@@ -77,13 +81,31 @@ const main = async (options) => {
     switch (selectArgv.template) {
         case 'component':
             await mkDir(`./src/components/${dirname}`);
+
             await mkFile(`./src/components/${dirname}/${filename}.tsx`, componentTem(filename));
             await mkFile(`./src/components/${dirname}/${filename}.scss`, scssTem(filename));
             log.info(`${dirname}  component创建完成`);
             process.exit(0);
+            // actionTem,
+            // componentTem,
+            // configTem,
+            // constantTem,
+            // interfaceTem,
+            // pageTem,
+            // reducerTem,
+            // scssTem
             break;
         case 'page':
-
+            await mkDir(`./src/pages/${dirname}`);
+            await mkFile(`./src/pages/${dirname}/${filename}.action.tsx`, actionTem(filename));
+            await mkFile(`./src/pages/${dirname}/config.tsx`, configTem(filename));
+            await mkFile(`./src/pages/${dirname}/${filename}.constant.tsx`, constantTem(filename));
+            await mkFile(`./src/pages/${dirname}/${filename}.interface.tsx`, interfaceTem(filename));
+            await mkFile(`./src/pages/${dirname}/${filename}.reducer.tsx`, reducerTem(filename));
+            await mkFile(`./src/pages/${dirname}/${filename}.tsx`, pageTem(filename));
+            await mkFile(`./src/pages/${dirname}/${filename}.scss`, scssTem(filename));
+            log.info(`${dirname}  component创建完成`);
+            process.exit(0);
             break;
         case 'service':
 

@@ -1,10 +1,10 @@
 const {
-    firstToUpperCase
-} = require('./../utils/util');
+  firstToUpperCase
+} = require('./../../utils/util');
 
 const componentTem = (componentStr) => {
-    const upperComponentStr = firstToUpperCase(componentStr);
-    const component = `import { ComponentClass } from "react";
+  const upperComponentStr = firstToUpperCase(componentStr);
+  const component = `import { ComponentClass } from "react";
 import Taro, { Component, Config } from "@tarojs/taro";
 import { View } from "@tarojs/components";
 import { connect } from "@tarojs/redux";
@@ -102,8 +102,8 @@ class ${upperComponentStr} extends Component {
 
 export default ${upperComponentStr} as ComponentClass<PageOwnProps, PageState>;
 `
-    return component;
+  return component;
 }
 module.exports = {
-    componentTem
+  componentTem
 }
