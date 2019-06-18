@@ -1,5 +1,6 @@
 const fs = require("fs");
 const chalk = require("chalk");
+const figlet = require('figlet');
 // 首字母大写转换
 const firstToUpperCase = (str) => {
     return str.replace(/( |^)[a-z]/g, (L) => L.toUpperCase());
@@ -33,6 +34,11 @@ const log = {
     green: (str) => {
         console.log(`${new Date()}   ${chalk.green(str)}`)
     },
+    logo: () => {
+        console.log(chalk.hex('#66339996').bold(figlet.textSync('GOLVEN  CLI', {
+            horizontalLayout: 'full'
+        })))
+    }
 }
 
 // 创建目录
@@ -41,9 +47,6 @@ const mkDir = (path) => {
         log.error('文件路径为空');
         process.exit();
     }
-    // var a = '232'
-    // a.split
-    // a.startsWith(.)
     // 目录数组
     let dirs = [];
     // 判断路径是以./开头
@@ -71,22 +74,30 @@ const mkDir = (path) => {
     let url = '';
     for (let index = 0; index < dirs.length; index++) {
         const element = dirs[index];
-        url = url + element;
+        if (url) {
+            url = url + '/' + element;
+        } else {
+            url = element;
+        }
         if (index === dirs.length && checkDir(url)) {
-            if (checkDir(`./src/components/${dirname}`)) {
-                log.error(`${dirname}目录已存在`)
+            if (checkDir(`${url}`)) {
+                log.error(`${url}目录已存在`)
                 process.exit(0);
             }
         }
         if (!checkDir(`./${url}`)) fs.mkdirSync(`./${url}`);
+        console.log('创建文件夹完成' + index);
     }
-
+    // return ''
     // 当前进程进入文件夹目录
-    process.chdir(url);
+    // process.chdir(url);
+    console.log('创建文件夹完成');
+
 }
 
 // 直接写入覆盖文件
 const mkFile = (filename, content) => {
+    console.log('写入文件开始');
     fs.writeFileSync(`${filename}`, content);
     // // 在组件创建文件夹
     // fs.mkdirSync(`./src/components/${dirname}`);
