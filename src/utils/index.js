@@ -1,22 +1,24 @@
 const {
-    form
-} = require('./form');
+    shellForm
+} = require('./shellForm');
 const {
     firstToUpperCase,
     checkDir,
     mkFile,
     appendWriteFile,
     mkDir,
-    log
+    log,
+    argv
 } = require('./util');
 
 
 module.exports = {
-    form,
+    shellForm,
     firstToUpperCase,
     checkDir,
     mkFile,
     appendWriteFile,
     mkDir,
-    log
+    log,
+    argv
 }

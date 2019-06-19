@@ -1,6 +1,6 @@
 const {
-    taro
+    taroGenerate
 } = require('./taro');
 module.exports = {
-    taro
+    taroGenerate
 };

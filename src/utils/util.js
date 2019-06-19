@@ -95,20 +95,6 @@ const mkDir = (path) => {
 // 直接写入覆盖文件
 const mkFile = (filename, content) => {
     fs.writeFileSync(`${filename}`, content);
-    // // 在组件创建文件夹
-    // fs.mkdirSync(`./src/components/${dirname}`);
-    // // 进入该目录下面
-    // process.chdir(`./src/components/${dirname}`);
-    // // 写入tsx文件
-
-    // // fs.writeFileSync(`${filename}.tsx`,conent componentTem(filename));
-    // // 写入scss文件
-    // fs.writeFileSync(`${filename}.scss`, conent scssTem(filename));
-    // log.info(`${dirname}component创建完成`);
-    // process.exit(0);
-    // 追加内容
-    //     fs.appendFileSync(`./src/test1.js`, `
-    // import {inxex} from './index'`)
 }
 
 // 在文件后面追加，如果没有该文件创建并写入
@@ -116,11 +102,16 @@ const appendWriteFile = (filename, content) => {
     fs.appendFileSync(filename, content);
 }
 
+
+// 解析参数
+const argv = require('minimist')(process.argv.slice(2))._;
+
 module.exports = {
     firstToUpperCase,
     checkDir,
     mkFile,
     appendWriteFile,
     mkDir,
-    log
+    log,
+    argv
 }

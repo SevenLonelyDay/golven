@@ -1,3 +1,17 @@
+const projectOptions = [{
+    type: 'list',
+    name: 'project',
+    message: '选择要生成的模板项目:',
+    choices: ['taro'],
+    validate: (value) => {
+        if (value.length) {
+            return true;
+        } else {
+            return '选择你要生成的模板项目.';
+        }
+    }
+}]
+
 // Taro命令窗口填写表单
 const taroOptions = [{
         type: 'list',
@@ -39,5 +53,6 @@ const taroOptions = [{
 ];
 
 module.exports = {
+    projectOptions,
     taroOptions
 };
