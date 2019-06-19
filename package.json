@@ -1,17 +1,21 @@
 {
   "name": "golven",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "自动化创建模板",
-  "main": "index.js",
+  "main": "./src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SevenLonelyDay/golven.git"
+  },
   "author": "sivona",
   "license": "MIT",
   "scripts": {
-    "start": "node index.js",
+    "start": "node src/index.js",
     "link": "",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "golven": "./index.js"
+    "golven": "./src/index.js"
   },
   "dependencies": {
     "chalk": "^2.4.2",
