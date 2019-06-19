@@ -1,6 +1,6 @@
-const constantTem = () => {
+const constantTem = (componentStr) => {
     const constant = `
-export const TEST = "TEST";
+export const TEST = "TEST${componentStr.toUpperCase()}";
 `
     return constant;
 }
